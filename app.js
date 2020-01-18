@@ -44,7 +44,7 @@ class Reddit{
                             throw new Error('Response failed.');
                           }
                         })
-                        .then(res => res[1].data.children[this.getRandomIntInclusive(1, 10)].data);
+                        .then(res => res[1].data.children[this.getRandomIntInclusive(1, 3)].data);
     return stry;
   }
 };
