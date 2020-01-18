@@ -23,6 +23,7 @@ class Reddit{
     const post = await fetch(`https://www.reddit.com/r/WritingPrompts/top.json?t=all&limit=100&after=1`)
                         .then(res => {
                           if(res.ok){
+                            console.log(res);
                             return res.json();
                           }
                           else{
