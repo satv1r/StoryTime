@@ -20,7 +20,7 @@ class Reddit{
   }
 
   async getPrompt(){
-    const post = await fetch(`https://www.reddit.com/r/WritingPrompts/top.json?t=all&limit=100&after=1`)
+    const post = await fetch(`https://www.reddit.com/r/WritingPrompts/top.json?t=all&limit=100`)
                         .then(res => {
                           if(res.ok){
                             console.log(res);
