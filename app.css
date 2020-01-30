@@ -1,38 +1,42 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Libra Baskervville', serif;
-  background-color: #CC9FA6;
-  color: #4F000D;
+body {
+  font-family: sans-serif;
+  background-color: #cc9fa6;
+  color: #4f000d;
 }
 
-.container{
+.container {
   text-align: center;
   margin: 5vh auto;
   max-width: 1000px;
 }
 
-h1{
+h1 {
   font-weight: 700;
   margin: 1rem 0;
 }
 
-h2{
+h2 {
   font-weight: 500;
   margin: 1rem 0;
 }
 
-p{
+p {
   margin: 1rem 0;
 }
 
-h1, h2, p{
+h1,
+h2,
+p {
+  color: white;
   padding: 1rem 1rem;
   border-radius: 1rem;
-  background-color: #F4C8D0;
-  box-shadow: 8px 6px 0 0 #E2C0C6;
+  box-shadow: -9px -9px 16px 0 rgba(255, 255, 255, 0.1),
+    9px 9px 16px rgba(0, 0, 0, 0.1);
+  text-shadow: -1px -1px 3px white, 1px 1px 3px black;
 }
