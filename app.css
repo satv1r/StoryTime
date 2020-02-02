@@ -33,10 +33,31 @@ p {
 h1,
 h2,
 p {
-  color: white;
+  color: black;
   padding: 1rem 1rem;
   border-radius: 1rem;
   box-shadow: -9px -9px 16px 0 rgba(255, 255, 255, 0.1),
     9px 9px 16px rgba(0, 0, 0, 0.1);
-  text-shadow: -1px -1px 3px white, 1px 1px 3px black;
+  /* text-shadow: -1px -1px 3px white, 1px 1px 3px black; */
+}
+
+button {
+  font-weight: 500;
+  padding: 1rem 0;
+  /* margin: 1rem; */
+  width: 100%;
+  box-shadow: -9px -9px 16px 0 rgba(255, 255, 255, 0.1),
+    9px 9px 16px rgba(0, 0, 0, 0.1);
+  color: black;
+  border-radius: 1rem;
+  border: 1px solid #cc9fa6;
+  background: #daabb3;
+  font-size: 2rem;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #cc9fa6;
+  border: 3px solid #e7b6be;
 }

@@ -1,11 +1,12 @@
 let prompt = document.getElementById("prompt");
 let story = document.getElementById("story");
 let credits = document.getElementById("credits");
+let button = document.getElementById("fetchStory");
 
 class Reddit {
   constructor() {
-    this.client_id = "apNZkTIwL2THmw";
-    this.client_secret = "	xzPbBJa6qhD4mL-6hBFJ9O1OuOU";
+    // this.client_id = "apNZkTIwL2THmw";
+    // this.client_secret = "	xzPbBJa6qhD4mL-6hBFJ9O1OuOU";
   }
 
   getRandomIntInclusive(min, max) {
@@ -61,17 +62,35 @@ class Reddit {
 const reddit = new Reddit();
 let pAuthor,
   sAuthor = "";
-reddit
-  .getPrompt()
-  .then(res => {
-    let title = reddit.cleanBody(res.title);
-    pAuthor = res.author;
-    prompt.innerHTML = title;
-    return res.id;
-  })
-  .then(id => reddit.getStory(id))
-  .then(comment => {
-    sAuthor = comment.author;
-    story.innerHTML = comment.body;
-    credits.innerHTML = `Prompt by: ${pAuthor}, Story by: ${sAuthor}`;
-  });
+
+const clearStory = () => {
+  prompt.innerHTML = "";
+  credits.innerHTML = "";
+  story.innerHTML = "";
+};
+
+const fetchStory = () => {
+  reddit
+    .getPrompt()
+    .then(res => {
+      let title = reddit.cleanBody(res.title);
+      pAuthor = res.author;
+      prompt.innerHTML = title;
+      return res.id;
+    })
+    .then(id => reddit.getStory(id))
+    .then(comment => {
+      sAuthor = comment.author;
+      if (comment.body === "[removed]") {
+        fetchStory();
+      }
+      story.innerHTML = comment.body;
+      credits.innerHTML = `Prompt by: <a href="https://www.reddit.com/user/${pAuthor}" target="_blank">${pAuthor}</a>, Story by: <a href="https://www.reddit.com/user/${sAuthor}" target="_blank">${sAuthor}</a>`;
+    });
+};
+
+button.addEventListener("click", e => {
+  clearStory();
+  fetchStory();
+  e.preventDefault();
+});
